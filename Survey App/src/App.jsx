@@ -10,13 +10,35 @@ const surveyQuestions = [
   { id: 5, question: "How likely are you to purchase again?", type: "rating" },
 ];
 
+function WelcomeScreen({ onStart }) {
+  return (
+    <div className="welcome-container">
+      <div className="welcome-card">
+        <h1 className="welcome-heading">Welcome to Our Customer Survey</h1>
+        
+        <span><p className="welcome-message">
+          Your feedback is important to us. 
+          Help us improve by sharing your thoughts.
+        </p></span>
+        <button className="start-button" onClick={onStart}>
+          Start Survey
+        </button>
+        <div className="welcome-footer">
+          <p className="footer-text">It only takes a few minutes!</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const SurveyApp = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [responses, setResponses] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [surveyStarted, setSurveyStarted] = useState(false); // State to track if the survey has started
 
-  // Limit the survey to only 3 questions
-  const totalQuestionsToShow = 3;
+  // Limit the survey to only 5 questions
+  const totalQuestionsToShow = 5;
   const questionsToDisplay = surveyQuestions.slice(0, totalQuestionsToShow);
 
   const handleNext = () => {
@@ -59,6 +81,10 @@ const SurveyApp = () => {
     setSubmitted(true);
   };
 
+  const handleStartSurvey = () => {
+    setSurveyStarted(true); // Start the survey
+  };
+
   // Display a thank you message after submission
   if (submitted) {
     return (
@@ -69,13 +95,16 @@ const SurveyApp = () => {
     );
   }
 
+  // Display the welcome screen if the survey hasn't started
+  if (!surveyStarted) {
+    return <WelcomeScreen onStart={handleStartSurvey} />;
+  }
+
   // Render the survey questions
   return (
     <div className="survey-container">
       <div className="survey-card">
-        {/* Add the heading here */}
         <h1 className="survey-heading">Customer Survey</h1>
-        <h2 className="question-text"></h2>
         <h2 className="question-text">
           {questionsToDisplay[currentQuestion].question}
         </h2>

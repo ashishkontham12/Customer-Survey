@@ -11,6 +11,8 @@ body {
   background: linear-gradient(135deg, #ececec, #38e4ab);
   color: #111827;
 }
+
+
 /* Survey Heading */
 .survey-heading {
   font-size: 2rem;
@@ -202,4 +204,79 @@ body {
   font-size: 1.2rem;
   color: #4b5563;
   animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Welcome Screen Container */
+.welcome-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient background */
+  font-family: "Arial", sans-serif;
+}
+
+/* Welcome Card */
+.welcome-card {
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Blur effect */
+  border-radius: 15px;
+  padding: 40px;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+}
+
+/* Welcome Heading */
+.welcome-heading {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #002366,#36454f; /* White for the heading */
+  white-space: nowrap; /* Ensures the heading stays in one line */
+   /* Prevents text overflow */
+   /* Adds ellipsis if text overflows */
+}
+
+/* Welcome Message */
+.welcome-message {
+  font-size: 1.0rem;
+  margin-bottom: 30px;
+  color: #708090,#333333; /* Light gray for the message */
+  line-height: 1.6;
+  max-width: 100%; /* Ensures the message wraps naturally */
+}
+
+/* Start Button */
+.start-button {
+  padding: 15px 40px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #e4e4e4;
+  background-color: #059DFF;
+  border: none;
+  border-radius: 50px; /* Rounded button */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Button shadow */
+}
+
+.start-button:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.start-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Welcome Footer */
+.welcome-footer {
+  margin-top: 30px;
+  font-size: 0.9rem;
+  color: #a0a0a0; /* Gray for the footer text */
 }
